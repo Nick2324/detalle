@@ -1,0 +1,1 @@
+Ésta es una página web destinada a mostrar información multimedia, geográfica y documental de temas relacionados con parejas

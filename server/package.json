@@ -1,0 +1,32 @@
+{
+  "name": "detalle_server",
+  "version": "1.0.0",
+  "description": "Contenido multimedia, geografico y documental para parejas",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nick2324/detalle.git"
+  },
+  "keywords": [
+    "Parejas",
+    "Amor"
+  ],
+  "author": "Nicolas Garcia <nicolas.2324@gmail.com> (http://nicolas2324.wordpress.com)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Nick2324/detalle/issues"
+  },
+  "homepage": "https://github.com/Nick2324/detalle#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.9",
+    "express": "^4.16.3",
+    "hbs": "^4.0.1",
+    "http-errors": "^1.6.3",
+    "morgan": "^1.9.1"
+  }
+}
