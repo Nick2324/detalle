@@ -1,0 +1,38 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'devstart' ]
+2 info using npm@2.15.9
+3 info using node@v10.0.0
+4 verbose run-script [ 'predevstart', 'devstart', 'postdevstart' ]
+5 info predevstart detalle_server@1.0.0
+6 info devstart detalle_server@1.0.0
+7 verbose unsafe-perm in lifecycle true
+8 info detalle_server@1.0.0 Failed to exec devstart script
+9 verbose stack Error: detalle_server@1.0.0 devstart: `nodemon ./bin/www`
+9 verbose stack Exit status 1
+9 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:217:16)
+9 verbose stack     at EventEmitter.emit (events.js:182:13)
+9 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+9 verbose stack     at ChildProcess.emit (events.js:182:13)
+9 verbose stack     at maybeClose (internal/child_process.js:947:16)
+9 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:236:5)
+10 verbose pkgid detalle_server@1.0.0
+11 verbose cwd /home/ngarcia/Documents/Lina/detalle/server
+12 error Linux 4.16.10-1.g68e48d7-default
+13 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "devstart"
+14 error node v10.0.0
+15 error npm  v2.15.9
+16 error code ELIFECYCLE
+17 error detalle_server@1.0.0 devstart: `nodemon ./bin/www`
+17 error Exit status 1
+18 error Failed at the detalle_server@1.0.0 devstart script 'nodemon ./bin/www'.
+18 error This is most likely a problem with the detalle_server package,
+18 error not with npm itself.
+18 error Tell the author that this fails on your system:
+18 error     nodemon ./bin/www
+18 error You can get information on how to open an issue for this project with:
+18 error     npm bugs detalle_server
+18 error Or if that isn't available, you can get their info via:
+18 error
+18 error     npm owner ls detalle_server
+18 error There is likely additional logging output above.
+19 verbose exit [ 1, true ]
