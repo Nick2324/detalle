@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <!--router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link-->
+      <Menu />
     </div>
-    <router-view/>
+    <!--router-view/-->
   </div>
 </template>
 
@@ -29,3 +30,16 @@
   color: #42b983;
 }
 </style>
+
+<script>
+  // @ is an alias to /src
+  import Menu from '@/components/Menu.vue'
+
+  export default {
+    name: 'root',
+    components: {
+      Menu
+    }
+  }
+</script>
+
