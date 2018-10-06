@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     initGoogleMaps: function () {
-      console.log(this.options)
+      console.log('options', this.options)
       this.vueGMap = new google.maps.Map(this.$refs.mapa, this.options)
       this.added = true
     },

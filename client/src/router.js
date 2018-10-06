@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Rutas from './views/Rutas.vue'
+import NuestrosMomentos from './views/NuestrosMomentos.vue'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/rutas',
       name: 'rutas',
       component: Rutas
+    },
+    {
+      path: '/nuestros-momentos',
+      name: 'nuestros-momentos',
+      component: NuestrosMomentos
     }
   ]
 })

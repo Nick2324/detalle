@@ -74,8 +74,6 @@ body {
 
 <script>
 
-import Rutas from '@/views/Rutas.vue'
-
 export default {
   name: 'detalle-menu',
   // props: ["menus"],
@@ -84,9 +82,9 @@ export default {
       closed: false,
       menus: [
         { nombre: 'Nuestras rutas', id: 1, to: '/rutas' },
-        { nombre: 'Nuestros momentos', id: 2, to: '/Home' },
+        { nombre: 'Nuestros momentos', id: 2, to: '/nuestros-momentos' },
         { nombre: 'Nuestras canciones', id: 3, to: '/About' },
-        { nombre: 'Mis dedicatorias', id: 4, to: '/x' },
+        { nombre: 'Mis dedicatorias', id: 4, to: '/Home' },
         { nombre: 'Me inspiras...', id: 5, to: '/y' }
       ]
     }
@@ -104,9 +102,6 @@ export default {
     toggle () {
       this.closed = !this.closed
     }
-  },
-  components: {
-    'rutas': Rutas
   }
 }
 </script>
