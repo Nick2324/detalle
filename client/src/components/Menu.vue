@@ -1,13 +1,12 @@
 <template>
 <div class="menu">
-  <div id="mySidenav" v-bind:class="clases">
-    <a @click="toggle" href="#">&#9776;</a>
-    <ul>
-      <li v-for="menu in menus" v-bind:key="menu.id">
-        <a href="#">{{menu.nombre}}</a>
-      </li>
-    </ul>
+  <a @click="toggle" href="#">&#9776;</a>
+  <div id="mySidenav" v-bind:class="classes">
+    <router-link v-for="menu in menus" :key="menu.id" v-bind:to="menu.to">
+      {{menu.nombre}}
+    </router-link>
   </div>
+  <router-view/>
 </div>
 </template>
 
@@ -74,26 +73,29 @@ body {
 </style>
 
 <script>
+
+import Rutas from '@/views/Rutas.vue'
+
 export default {
-  name: 'menu',
+  name: 'detalle-menu',
   // props: ["menus"],
   data () {
     return {
       closed: false,
       menus: [
-        { nombre: 'Nuestras rutas', id: 1 },
-        { nombre: 'Nuestros momentos', id: 2 },
-        { nombre: 'Nuestras canciones', id: 3 },
-        { nombre: 'Mis dedicatorias', id: 4 },
-        { nombre: 'Me inspiras...', id: 5 }
+        { nombre: 'Nuestras rutas', id: 1, to: '/rutas' },
+        { nombre: 'Nuestros momentos', id: 2, to: '/Home' },
+        { nombre: 'Nuestras canciones', id: 3, to: '/About' },
+        { nombre: 'Mis dedicatorias', id: 4, to: '/x' },
+        { nombre: 'Me inspiras...', id: 5, to: '/y' }
       ]
     }
   },
   computed: {
     classes () {
       return {
-        'sidenav-opened': !this.closed,
-        'sidenav-closed': this.closed,
+        'sidenav-opened': !!this.closed,
+        'sidenav-closed': !this.closed,
         'sidenav': true
       }
     }
@@ -102,6 +104,9 @@ export default {
     toggle () {
       this.closed = !this.closed
     }
+  },
+  components: {
+    'rutas': Rutas
   }
 }
 </script>

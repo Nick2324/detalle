@@ -1,11 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!--router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link-->
-      <Menu />
+      <detalle-menu />
     </div>
-    <!--router-view/-->
   </div>
 </template>
 
@@ -32,14 +29,19 @@
 </style>
 
 <script>
-  // @ is an alias to /src
-  import Menu from '@/components/Menu.vue'
+// @ is an alias to /src
+import Vue from 'vue'
+import Menu from '@/components/Menu.vue'
+import BootstrapVue from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-  export default {
-    name: 'root',
-    components: {
-      Menu
-    }
+Vue.use(BootstrapVue)
+
+export default {
+  name: 'root',
+  components: {
+    'detalle-menu': Menu
   }
+}
 </script>
-
