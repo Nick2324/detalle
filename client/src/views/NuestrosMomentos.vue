@@ -6,7 +6,7 @@
 
 <script>
 
-import Gallery from '@/components/Gallery'
+import Gallery from '@/components/gallery/Gallery'
 
 export default {
   name: 'nuestros-momentos',

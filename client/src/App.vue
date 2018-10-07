@@ -31,11 +31,13 @@
 <script>
 // @ is an alias to /src
 import Vue from 'vue'
-import Menu from '@/components/Menu.vue'
+import Menu from '@/components/menu/Menu.vue'
+import ComponentUtil from '@/components/util/ComponentUtil.vue'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.mixin(ComponentUtil)
 Vue.use(BootstrapVue)
 
 export default {

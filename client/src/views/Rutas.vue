@@ -6,13 +6,13 @@
 
 <script>
 
-import Mapa from '@/components/Mapa.vue'
+import Mapa from '@/components/maps/Mapa.vue'
 
 export default {
   name: 'rutas',
   data () {
     return {
-      opciones:{
+      opciones: {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 8
       }
