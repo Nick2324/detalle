@@ -1,6 +1,6 @@
 <template>
-  <div id="text-element">
-    ELEMENTO TEXTO - {{id}} - {{placeholder}}
+  <div id="sound-element">
+    ELEMENTO SOUND - {{id}} - {{placeholder}}
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import GalleryElement from './GalleryElement.vue'
 
 export default {
-  name: 'text-element',
+  name: 'sound-element',
   extends: GalleryElement
 }
 

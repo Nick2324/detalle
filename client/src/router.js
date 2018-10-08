@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Rutas from './views/Rutas.vue'
 import NuestrosMomentos from './views/NuestrosMomentos.vue'
+import NuestrasCanciones from './views/NuestrasCanciones.vue'
+import MisDedicatorias from './views/MisDedicatorias.vue'
+import MeInspiras from './views/MeInspiras.vue'
 
 Vue.use(Router)
 
@@ -32,6 +35,21 @@ export default new Router({
       path: '/nuestros-momentos',
       name: 'nuestros-momentos',
       component: NuestrosMomentos
+    },
+    {
+      path: '/nuestras-canciones',
+      name: 'nuestras-canciones',
+      component: NuestrasCanciones
+    },
+    {
+      path: '/mis-dedicatorias',
+      name: 'mis-dedicatorias',
+      component: MisDedicatorias
+    },
+    {
+      path: '/me-inspiras',
+      name: 'me-inspiras',
+      component: MeInspiras
     }
   ]
 })

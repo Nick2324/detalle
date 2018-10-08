@@ -1,16 +1,16 @@
 <template>
-  <div id="gallery-image-element">
+  <div id="image-element">
     ELEMENTO IMAGE - {{id}} - {{placeholder}}
   </div>
 </template>
 
 <script>
 
-import GalleryElement from './GalleryElement'
+import GalleryElement from './GalleryElement.vue'
 
 export default {
-    name: 'gallery-image-element',
-    extends: GalleryElement
+  name: 'image-element',
+  extends: GalleryElement
 }
 
 </script>

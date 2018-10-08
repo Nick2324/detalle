@@ -1,5 +1,5 @@
 <template>
-  <div id="nuestros-momentos">
+  <div id="me-inspiras">
     <p>{{ descripcion }}</p>
     <gallery />
   </div>
@@ -10,10 +10,10 @@
 import Gallery from '@/components/gallery/Gallery'
 
 export default {
-  name: 'nuestros-momentos',
+  name: 'me-inspiras',
   data () {
     return {
-      descripcion: 'Nuestros momentos'
+      descripcion: 'Me inspiras'
     }
   },
   components: {

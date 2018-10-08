@@ -1,6 +1,7 @@
 <template>
     <div id="rutas">
-        <mapa v-bind:options="opciones"/>
+      <p>{{ descripcion }}</p>
+      <mapa v-bind:options="opciones"/>
     </div>
 </template>
 
@@ -12,6 +13,7 @@ export default {
   name: 'rutas',
   data () {
     return {
+      descripcion: 'Rutas',
       opciones: {
         center: { lat: -34.397, lng: 150.644 },
         zoom: 8

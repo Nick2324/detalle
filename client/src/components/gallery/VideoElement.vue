@@ -1,15 +1,15 @@
 <template>
-  <div id="gallery-video-element">
+  <div id="video-element">
     ELEMENTO VIDEO - {{id}} - {{placeholder}}
   </div>
 </template>
 
 <script>
 
-import GalleryElement from './GalleryElement'
+import GalleryElement from './GalleryElement.vue'
 
 export default {
-  name: 'gallery-video-element',
+  name: 'video-element',
   extends: GalleryElement
 }
 

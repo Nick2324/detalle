@@ -83,9 +83,9 @@ export default {
       menus: [
         { nombre: 'Nuestras rutas', id: 1, to: '/rutas' },
         { nombre: 'Nuestros momentos', id: 2, to: '/nuestros-momentos' },
-        { nombre: 'Nuestras canciones', id: 3, to: '/About' },
-        { nombre: 'Mis dedicatorias', id: 4, to: '/Home' },
-        { nombre: 'Me inspiras...', id: 5, to: '/y' }
+        { nombre: 'Nuestras canciones', id: 3, to: '/nuestras-canciones' },
+        { nombre: 'Mis dedicatorias', id: 4, to: '/mis-dedicatorias' },
+        { nombre: 'Me inspiras...', id: 5, to: '/me-inspiras' }
       ]
     }
   },

@@ -12,10 +12,12 @@
 
 <script>
 
-import GalleryElement from './GalleryElement'
-import ImageElement from './ImageElement'
-import TextElement from './TextElement'
-import VideoElement from './VideoElement'
+import VideoElement from './VideoElement.vue'
+import ImageElement from './ImageElement.vue'
+import TextElement from './TextElement.vue'
+import GalleryElement from './GalleryElement.vue'
+import SoundElement from './SoundElement.vue'
+import LinkElement from './LinkElement.vue'
 
 export default {
   name: 'gallery',
@@ -24,28 +26,29 @@ export default {
     return {
       'matriz': null,
       'elements': [
-        { 'id': 1, 'placeholder': 'xyz', 'component': 'gallery-video-element' },
-        { 'id': 2, 'placeholder': 'xyz', 'component': 'gallery-image-element' },
-        { 'id': 3, 'placeholder': 'xyz', 'component': 'gallery-text-element' },
-        { 'id': 4, 'placeholder': 'xyz', 'component': 'gallery-element' },
-        { 'id': 5, 'placeholder': 'xyz', 'component': 'gallery-element' },
-        { 'id': 6, 'placeholder': 'xyz', 'component': 'gallery-element' },
-        { 'id': 7, 'placeholder': 'xyz', 'component': 'gallery-video-element' },
-        { 'id': 8, 'placeholder': 'xyz', 'component': 'gallery-image-element' },
-        { 'id': 9, 'placeholder': 'xyz', 'component': 'gallery-text-element' },
-        { 'id': 10, 'placeholder': 'xyz', 'component': 'gallery-image-element' },
-        { 'id': 11, 'placeholder': 'xyz', 'component': 'gallery-image-element' },
-        { 'id': 12, 'placeholder': 'xyz', 'component': 'gallery-image-element' }
+        { 'id': 1, 'placeholder': 'xyz', 'component': 'VideoElement' },
+        { 'id': 2, 'placeholder': 'xyz', 'component': 'VideoElement' },
+        { 'id': 3, 'placeholder': 'xyz', 'component': 'TextElement' },
+        { 'id': 4, 'placeholder': 'xyz', 'component': 'GalleryElement' },
+        { 'id': 5, 'placeholder': 'xyz', 'component': 'GalleryElement' },
+        { 'id': 6, 'placeholder': 'xyz', 'component': 'GalleryElement' },
+        { 'id': 7, 'placeholder': 'xyz', 'component': 'VideoElement' },
+        { 'id': 8, 'placeholder': 'xyz', 'component': 'VideoElement' },
+        { 'id': 9, 'placeholder': 'xyz', 'component': 'TextElement' },
+        { 'id': 10, 'placeholder': 'xyz', 'component': 'VideoElement' },
+        { 'id': 11, 'placeholder': 'xyz', 'component': 'VideoElement' },
+        { 'id': 12, 'placeholder': 'xyz', 'component': 'VideoElement' }
       ],
       'rows': null,
       'cols': 4
     }
   },
   components: {
-    GalleryElement,
     VideoElement,
+    GalleryElement,
     TextElement,
-    ImageElement
+    SoundElement,
+    LinkElement
   },
   created () {
     let i = -1
@@ -60,7 +63,6 @@ export default {
         this.matriz[i].push(currval)
       }.bind(this))
     }
-    console.log('this.matriz', this.matriz)
   }
 }
 

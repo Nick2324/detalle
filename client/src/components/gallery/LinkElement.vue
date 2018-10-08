@@ -1,6 +1,6 @@
 <template>
-  <div id="text-element">
-    ELEMENTO TEXTO - {{id}} - {{placeholder}}
+  <div id="link-element">
+    ELEMENTO LINK - {{id}} - {{placeholder}}
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import GalleryElement from './GalleryElement.vue'
 
 export default {
-  name: 'text-element',
+  name: 'link-element',
   extends: GalleryElement
 }
 
