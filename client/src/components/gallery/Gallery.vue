@@ -13,6 +13,9 @@
 <script>
 
 import GalleryElement from './GalleryElement'
+import ImageElement from './ImageElement'
+import TextElement from './TextElement'
+import VideoElement from './VideoElement'
 
 export default {
   name: 'gallery',
@@ -39,7 +42,10 @@ export default {
     }
   },
   components: {
-    GalleryElement
+    GalleryElement,
+    VideoElement,
+    TextElement,
+    ImageElement
   },
   created () {
     let i = -1

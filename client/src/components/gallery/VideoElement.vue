@@ -9,8 +9,8 @@
 import GalleryElement from './GalleryElement'
 
 export default {
-    name: 'gallery-video-element',
-    extends: GalleryElement
+  name: 'gallery-video-element',
+  extends: GalleryElement
 }
 
 </script>
