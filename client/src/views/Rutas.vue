@@ -1,7 +1,7 @@
 <template>
-    <div id="rutas">
+    <div id="rutas" class="text-center">
       <p>{{ descripcion }}</p>
-      <mapa v-bind:options="opciones"/>
+      <mapa v-bind:options="opciones" />
     </div>
 </template>
 

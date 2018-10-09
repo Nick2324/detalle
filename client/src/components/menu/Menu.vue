@@ -1,7 +1,7 @@
 <template>
 <div class="menu">
   <a @click="toggle" href="#">&#9776;</a>
-  <div id="mySidenav" v-bind:class="classes">
+  <div id="sidenav" v-bind:class="classes">
     <router-link v-for="menu in menus" :key="menu.id" v-bind:to="menu.to">
       {{menu.nombre}}
     </router-link>
@@ -94,7 +94,8 @@ export default {
       return {
         'sidenav-opened': !!this.closed,
         'sidenav-closed': !this.closed,
-        'sidenav': true
+        'sidenav': true,
+        'text-center': true
       }
     }
   },

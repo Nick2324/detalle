@@ -8,7 +8,15 @@
 
 export default {
   name: 'gallery-element',
-  props: [ 'id', 'placeholder' ]
+  props: [ 'id', 'placeholder' ],
+  created () {
+    if (!this.placeholder) {
+      this.id = this.placeholder
+    }
+  },
+  computed: {
+    descripcion: () => this.id + '-' + this.placeholder
+  }
 }
 
 </script>

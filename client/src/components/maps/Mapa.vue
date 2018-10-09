@@ -1,15 +1,13 @@
 <template>
-  <div id="mapa" ref="mapa"></div>
+  <div id="mapa" ref="mapa" class="text-center"></div>
 </template>
 
 <style>
 #mapa {
-  height: 100%;
-}
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  height: 600px;
+  width: 600px;
+  float: right;
+  margin: auto;
 }
 </style>
 
@@ -19,33 +17,33 @@ export default {
   props: ['options'],
   data: function () {
     return {
-      'added': false,
       'vueGMap': null,
       'API_KEY': 'AIzaSyBlIsK8tcgtkt_X1CiIBBaURVnh1evsqm0'
     }
   },
   mounted () {
-    if (!this.added) {
-      this.createGoogleMaps().then(this.initGoogleMaps, this.googleMapsFailedToLoad)
-    }
+    this.createGoogleMaps().then(this.initGoogleMaps, this.googleMapsFailedToLoad)
   },
   methods: {
     initGoogleMaps: function () {
-      console.log('options', this.options)
       this.vueGMap = new google.maps.Map(this.$refs.mapa, this.options)
-      this.added = true
     },
     googleMapsFailedToLoad: function (error) {
       console.log(error)
     },
     createGoogleMaps: function () {
       return new Promise((resolve, reject) => {
-        let gmap = document.createElement('script')
-        gmap.src = `https://maps.googleapis.com/maps/api/js?key=${this.API_KEY}`
-        gmap.type = 'text/javascript'
-        gmap.onload = resolve
-        gmap.onerror = reject
-        document.body.appendChild(gmap)
+        if (!document.getElementById('script-google-maps')) {
+          let gmap = document.createElement('script')
+          gmap.id = 'script-google-maps'
+          gmap.src = `https://maps.googleapis.com/maps/api/js?key=${this.API_KEY}`
+          gmap.type = 'text/javascript'
+          gmap.onload = resolve
+          gmap.onerror = reject
+          document.body.appendChild(gmap)
+        } else {
+          resolve()
+        }
       })
     }
   }

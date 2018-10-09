@@ -1,6 +1,12 @@
 <template>
   <div id="sound-element">
-    ELEMENTO SOUND - {{id}} - {{placeholder}}
+    <img :src="imageSrc" :alt="placeholder"/>
+    <audio :ref="id" @hover="togglePlaying">
+      <source :src="src" :type="srcType">
+    </audio>
+    <div :id="descripcion">
+      {{placeholder}}
+    </div>
   </div>
 </template>
 
@@ -10,7 +16,29 @@ import GalleryElement from './GalleryElement.vue'
 
 export default {
   name: 'sound-element',
-  extends: GalleryElement
+  extends: GalleryElement,
+  props: [ 'src', 'imageSrc' ],
+  data () {
+    return {
+      src: null,
+      srcType: null,
+      playing: false
+    }
+  },
+  computed: {
+    srcType: () => 'audio/' + this.src.match(/\.(wav|mp3|ogg)^/i).toLowerCase(),
+    descripcion: () => this.id + '-' + this.placeholder
+  },
+  method: {
+    togglePlaying () {
+      this.playing = !!this.playing
+      if (this.playing) {
+        this.$ref[this.id].play()
+      } else {
+        this.$ref[this.id].pause()
+      }
+    }
+  }
 }
 
 </script>
