@@ -19,8 +19,6 @@ export default {
   props: [ 'src', 'imageSrc' ],
   data () {
     return {
-      src: null,
-      srcType: null,
       playing: false
     }
   },

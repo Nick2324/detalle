@@ -20,13 +20,11 @@ export default {
   props: [ 'src', 'imageSrc' ],
   data () {
     return {
-      src: null,
-      srcType: null,
       playing: false
     }
   },
   computed: {
-    srcType: () => 'audio/' + this.src.match(/\.(wav|mp3|ogg)^/i).toLowerCase(),
+    srcType: () => 'audio/' + this.src.match(/\.(wav|mp3|ogg)^/i).toLowerCase().replace('mp3', 'mpeg'),
     descripcion: () => this.id + '-' + this.placeholder
   },
   method: {
