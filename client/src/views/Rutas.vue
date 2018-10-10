@@ -28,7 +28,7 @@ export default {
           },
           info: {
             descripcion: 'EL ABC DE LOS DETALLES',
-            imagen: '/assets/logo.png'
+            imagen: '/images/logo.png'
           }
         },
         {

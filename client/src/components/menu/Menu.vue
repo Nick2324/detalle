@@ -1,16 +1,31 @@
 <template>
 <div class="menu">
-  <a @click="toggle" href="#">&#9776;</a>
-  <div id="sidenav" v-bind:class="classes">
-    <router-link v-for="menu in menus" :key="menu.id" v-bind:to="menu.to">
-      {{menu.nombre}}
-    </router-link>
+  <div id="nav">
+    <a @click="toggle" href="#">&#9776;</a>
+    <div id="sidenav" v-bind:class="classes">
+      <router-link v-for="menu in menus" :key="menu.id" v-bind:to="menu.to">
+        {{menu.nombre}}
+      </router-link>
+    </div>
+    <router-view/>
   </div>
-  <router-view/>
 </div>
 </template>
 
 <style>
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+
 .open-sidenav{
   font-size:30px;cursor:pointer
 }
@@ -85,7 +100,8 @@ export default {
         { nombre: 'Nuestros momentos', id: 2, to: '/nuestros-momentos' },
         { nombre: 'Nuestras canciones', id: 3, to: '/nuestras-canciones' },
         { nombre: 'Mis dedicatorias', id: 4, to: '/mis-dedicatorias' },
-        { nombre: 'Me inspiras...', id: 5, to: '/me-inspiras' }
+        { nombre: 'Me inspiras...', id: 5, to: '/me-inspiras' },
+        { nombre: 'home', id: 6, to: '/home' }
       ]
     }
   },

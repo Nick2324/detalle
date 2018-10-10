@@ -1,13 +1,26 @@
 <template>
   <div id="video-element">
-    <video :ref="id" @hover="togglePlaying" :poster="imageSrc">
+    <video 
+      :ref="id"
+      @mouseout="togglePlaying"
+      @mouseover="togglePlaying"
+      :poster="imageSrc"
+      controls
+    >
       <source :src="src" :type="srcType">
     </video>
     <div :id="descripcion">
-      {{placeholder}}
+      {{ placeholder }}
     </div>
   </div>
 </template>
+
+<style scoped>
+/* video {
+  max-width: 500px;
+  max-heigth: 500px;
+} */
+</style>
 
 <script>
 
@@ -16,22 +29,29 @@ import GalleryElement from './GalleryElement.vue'
 export default {
   name: 'video-element',
   extends: GalleryElement,
-  props: [ 'src', 'imageSrc' ],
+  created () {
+    this.src = this.options.src
+    this.imageSrc = this.options.imageSrc
+  },
   data () {
     return {
-      playing: false
+      playing: false,
+      src: null,
+      imageSrc: null
     }
   },
   computed: {
-    srcType: () => 'video/' + this.src.match(/\.(mp4|webm|ogg)^/i).toLowerCase()
+    srcType () {
+      return 'video/' + this.src.match(/\.(mp4|webm|ogg)/i)[0].toLowerCase().replace('.', '')
+    }
   },
   method: {
     togglePlaying () {
       this.playing = !!this.playing
       if (this.playing) {
-        this.$ref[this.id].play()
+        this.$refs[this.id].play()
       } else {
-        this.$ref[this.id].pause()
+        this.$refs[this.id].pause()
       }
     }
   }

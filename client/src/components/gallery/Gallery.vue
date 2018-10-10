@@ -2,8 +2,8 @@
   <div id="gallery">
     <b-container class="bv-example-row">
       <b-row v-for="(row, i) in matriz" :key="i">
-        <b-col v-for="(col, j) in row" :key="i * cols + j">
-          <component :is="col.component" :id="col.id" :placeholder="col.placeholder"/>
+        <b-col class="col-6" v-for="(col, j) in row" :key="i * cols + j">
+          <component :is="col.component" :id="col.id" :placeholder="col.placeholder" :options="col.options"/>
         </b-col>
       </b-row>
     </b-container>
@@ -21,26 +21,11 @@ import LinkElement from './LinkElement.vue'
 
 export default {
   name: 'gallery',
-  // props: [ 'cols', 'elements' ],
+  props: [ 'cols', 'elements' ],
   data () {
     return {
       'matriz': null,
-      'elements': [
-        { 'id': 1, 'placeholder': 'xyz', 'component': 'VideoElement' },
-        { 'id': 2, 'placeholder': 'xyz', 'component': 'VideoElement' },
-        { 'id': 3, 'placeholder': 'xyz', 'component': 'TextElement' },
-        { 'id': 4, 'placeholder': 'xyz', 'component': 'GalleryElement' },
-        { 'id': 5, 'placeholder': 'xyz', 'component': 'GalleryElement' },
-        { 'id': 6, 'placeholder': 'xyz', 'component': 'GalleryElement' },
-        { 'id': 7, 'placeholder': 'xyz', 'component': 'VideoElement' },
-        { 'id': 8, 'placeholder': 'xyz', 'component': 'VideoElement' },
-        { 'id': 9, 'placeholder': 'xyz', 'component': 'TextElement' },
-        { 'id': 10, 'placeholder': 'xyz', 'component': 'VideoElement' },
-        { 'id': 11, 'placeholder': 'xyz', 'component': 'VideoElement' },
-        { 'id': 12, 'placeholder': 'xyz', 'component': 'VideoElement' }
-      ],
-      'rows': null,
-      'cols': 4
+      'rows': null
     }
   },
   components: {
@@ -48,7 +33,8 @@ export default {
     GalleryElement,
     TextElement,
     SoundElement,
-    LinkElement
+    LinkElement,
+    ImageElement
   },
   created () {
     let i = -1

@@ -8,14 +8,16 @@
 
 export default {
   name: 'gallery-element',
-  props: [ 'id', 'placeholder' ],
+  props: [ 'id', 'placeholder', 'options' ],
   created () {
     if (!this.placeholder) {
       this.id = this.placeholder
     }
   },
   computed: {
-    descripcion: () => this.id + '-' + this.placeholder
+    descripcion () {
+      return this.id + '-' + this.placeholder
+    }
   }
 }
 

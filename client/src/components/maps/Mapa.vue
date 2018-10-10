@@ -2,7 +2,7 @@
   <div id="mapa" ref="mapa" class="text-center"></div>
 </template>
 
-<style>
+<style scoped>
 #mapa {
   height: 600px;
   width: 600px;

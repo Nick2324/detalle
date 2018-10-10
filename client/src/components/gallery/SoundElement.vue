@@ -1,7 +1,13 @@
 <template>
   <div id="sound-element">
-    <img :src="imageSrc" :alt="placeholder"/>
-    <audio :ref="id" @hover="togglePlaying">
+    <img v-if="imageSrc"
+      @mouseout="togglePlaying"
+      @mouseover="togglePlaying"
+      :src="imageSrc"
+      :alt="placeholder"
+      class="thumbnail"
+    />
+    <audio :ref="id" controls>
       <source :src="src" :type="srcType">
     </audio>
     <div :id="descripcion">
@@ -17,23 +23,32 @@ import GalleryElement from './GalleryElement.vue'
 export default {
   name: 'sound-element',
   extends: GalleryElement,
-  props: [ 'src', 'imageSrc' ],
   data () {
     return {
-      playing: false
+      playing: false,
+      src: null,
+      imageSrc: null
     }
   },
-  computed: {
-    srcType: () => 'audio/' + this.src.match(/\.(wav|mp3|ogg)^/i).toLowerCase().replace('mp3', 'mpeg'),
-    descripcion: () => this.id + '-' + this.placeholder
+  created () {
+    this.src = this.options.src
+    this.imageSrc = this.options.imageSrc
   },
-  method: {
-    togglePlaying () {
-      this.playing = !!this.playing
+  computed: {
+    srcType () {
+      return 'audio/' + this.src.match(/\.(wav|mp3|ogg|mpeg)/i)[0].toLowerCase().replace('mp3', 'mpeg').replace('.', '')
+    },
+    descripcion () {
+      return this.id + '-' + this.placeholder
+    }
+  },
+  methods: {
+    togglePlaying (event) {
+      this.playing = !this.playing
       if (this.playing) {
-        this.$ref[this.id].play()
+        this.$refs[this.id].play()
       } else {
-        this.$ref[this.id].pause()
+        this.$refs[this.id].pause()
       }
     }
   }
