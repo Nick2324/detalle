@@ -1,6 +1,6 @@
 <template>
   <div id="video-element">
-    <video 
+    <video
       :ref="id"
       @mouseout="togglePlaying"
       @mouseover="togglePlaying"

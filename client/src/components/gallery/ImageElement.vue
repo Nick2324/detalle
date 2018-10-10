@@ -1,6 +1,6 @@
 <template>
   <div id="image-element">
-    ELEMENTO IMAGE - {{id}} - {{placeholder}}
+    <img :src="src" :alt="placeholder" />
   </div>
 </template>
 
@@ -10,7 +10,15 @@ import GalleryElement from './GalleryElement.vue'
 
 export default {
   name: 'image-element',
-  extends: GalleryElement
+  extends: GalleryElement,
+  created () {
+    this.src = this.options.src
+  },
+  data () {
+    return {
+      src: null
+    }
+  }
 }
 
 </script>
