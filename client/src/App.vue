@@ -27,9 +27,11 @@ import Vue from 'vue'
 import Menu from '@/components/menu/Menu.vue'
 import ComponentUtil from '@/components/util/ComponentUtil.vue'
 import BootstrapVue from 'bootstrap-vue'
+import VueHtml2Canvas from 'vue-html2canvas'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+Vue.use(VueHtml2Canvas);
 Vue.mixin(ComponentUtil)
 Vue.use(BootstrapVue)
 

@@ -2,7 +2,7 @@
   <div id="gallery">
     <b-container class="bv-example-row">
       <b-row v-for="(row, i) in matriz" :key="i">
-        <b-col class="col-6" v-for="(col, j) in row" :key="i * cols + j">
+        <b-col v-for="(col, j) in row" :key="i * cols + j">
           <component :is="col.component" :id="col.id" :placeholder="col.placeholder" :options="col.options"/>
         </b-col>
       </b-row>
