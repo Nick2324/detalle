@@ -100,8 +100,7 @@ export default {
         { nombre: 'Nuestros momentos', id: 2, to: '/nuestros-momentos' },
         { nombre: 'Nuestras canciones', id: 3, to: '/nuestras-canciones' },
         { nombre: 'Mis dedicatorias', id: 4, to: '/mis-dedicatorias' },
-        { nombre: 'Me inspiras...', id: 5, to: '/me-inspiras' },
-        { nombre: 'home', id: 6, to: '/home' }
+        { nombre: 'Me inspiras...', id: 5, to: '/me-inspiras' }
       ]
     }
   },

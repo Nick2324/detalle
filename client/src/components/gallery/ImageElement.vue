@@ -1,6 +1,15 @@
 <template>
   <div id="image-element">
-    <img :src="src" :alt="placeholder" />
+    <b-card
+      :title="title"
+      :img-src="src"
+      :img-alt="placeholder"
+      img-top
+      tag="article">
+      <p v-if="text" class="card-text">
+        {{ text }}
+      </p>
+    </b-card>
   </div>
 </template>
 
@@ -13,10 +22,14 @@ export default {
   extends: GalleryElement,
   created () {
     this.src = this.options.src
+    this.text = this.options.text
+    this.title = this.options.title
   },
   data () {
     return {
-      src: null
+      src: null,
+      text: null,
+      title: null
     }
   }
 }

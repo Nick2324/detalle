@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     openLink () {
-      let w = open(this.src,'_blank')
+      let w = open(this.src, '_blank')
       w.focus()
     }
   }

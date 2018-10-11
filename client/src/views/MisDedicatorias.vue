@@ -32,7 +32,7 @@ export default {
           'id': 3,
           'placeholder': '4',
           'component': 'ImageElement',
-          options: { 'src': '/images/logo.png' }
+          options: { 'src': '/images/logo.png', 'text': 'prueba del texto hijo de su mama' }
         },
         {
           'id': 4,

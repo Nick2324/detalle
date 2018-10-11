@@ -58,7 +58,7 @@ export default {
           'id': 2,
           'placeholder': '4',
           'component': 'TextElement',
-          options: { 'text': 'prueba 3' }
+          options: { 'text': 'prueba 3333333333333</br>3333333333333</br>' }
         },
         {
           'id': 3,

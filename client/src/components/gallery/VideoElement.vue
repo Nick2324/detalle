@@ -45,9 +45,9 @@ export default {
       return 'video/' + this.src.match(/\.(mp4|webm|ogg)/i)[0].toLowerCase().replace('.', '')
     }
   },
-  method: {
+  methods: {
     togglePlaying () {
-      this.playing = !!this.playing
+      this.playing = !this.playing
       if (this.playing) {
         this.$refs[this.id].play()
       } else {
