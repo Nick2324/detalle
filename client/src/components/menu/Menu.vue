@@ -1,5 +1,5 @@
 <template>
-<div class="menu">
+<div class="menu p-2">
   <div id="nav">
     <a @click="toggle" href="#">&#9776;</a>
     <div id="sidenav" v-bind:class="classes">
@@ -7,12 +7,14 @@
         {{menu.nombre}}
       </router-link>
     </div>
+  </div>
+  <div id="menu-content" class="d-flex p-2">
     <router-view/>
   </div>
 </div>
 </template>
 
-<style>
+<style scoped>
 #nav {
   padding: 30px;
 }

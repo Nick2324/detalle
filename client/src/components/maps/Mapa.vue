@@ -5,7 +5,7 @@
 <style scoped>
 #mapa {
   height: 600px;
-  width: 600px;
+  width: 100%;
   float: right;
   margin: auto;
 }
