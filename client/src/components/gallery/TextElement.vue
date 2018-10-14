@@ -1,5 +1,5 @@
 <template>
-  <div id="text-element">
+  <div id="text-element" class="gallery-element">
     <div ref="thumbnail"></div>
     <div :id="id + '-text-element'" ref="content" class="d-none">
       <h3 v-if="title">{{ title }}</h3>

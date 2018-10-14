@@ -4,6 +4,13 @@
   </div>
 </template>
 
+<style scoped>
+.gallery-element {
+  max-width: 100%;
+  max-height: 100%;
+}
+</style>
+
 <script>
 
 export default {

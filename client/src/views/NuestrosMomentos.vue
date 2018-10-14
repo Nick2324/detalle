@@ -14,7 +14,7 @@ export default {
   data () {
     return {
       descripcion: 'Nuestros momentos',
-      cols: 2,
+      cols: 4,
       elements: [
         {
           'id': 0,

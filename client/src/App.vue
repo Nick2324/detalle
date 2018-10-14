@@ -9,6 +9,11 @@
   max-width: 500px;
   max-height: 500px;
 }
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
 </style>
 
 <style scoped>
@@ -17,7 +22,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  height: 100%;
+  width: 100%;
 }
 </style>
 

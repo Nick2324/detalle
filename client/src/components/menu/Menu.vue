@@ -1,78 +1,73 @@
 <template>
-<div class="menu p-2">
-  <div id="nav">
-    <a @click="toggle" href="#">&#9776;</a>
-    <div id="sidenav" v-bind:class="classes">
-      <router-link v-for="menu in menus" :key="menu.id" v-bind:to="menu.to">
+<div class="menu d-flex d-flex-row">
+  <div id="sidenav" :class="navClasses">
+    <a @click="toggle" href="#" :class="linkClasses">&#9776;</a>
+    <div :ref="'menu-item-' + menu.id" :class="{'menu-item': true, 'rounded': true, 'menu-item-selected': menu.id == selectedItem}" v-for="menu in menus" :key="menu.id">
+      <router-link :to="menu.to" @click.native="itemSelected(menu.id)">
         {{menu.nombre}}
       </router-link>
     </div>
   </div>
-  <div id="menu-content" class="d-flex p-2">
+  <div id="menu-content" class="content flex-grow-1">
     <router-view/>
   </div>
 </div>
 </template>
 
 <style scoped>
-#nav {
-  padding: 30px;
+.menu {
+  height: 100%;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.content {
+  margin-right: 10px;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.toggle-menu {
+  position: inherited;
+  text-align: right;
 }
 
-.open-sidenav{
-  font-size:30px;cursor:pointer
+.toggle-close {
+  position: fixed;
+  transition: 0.7s;
 }
 
-body {
-  font-family: "Lato", sans-serif;
+.menu-item {
+  background-color: #818181;
+}
+
+.menu-item:hover, .menu-item-selected {
+  background-color: #FFFFFF;
+  transition: 1s;
+}
+
+.menu-item:hover a, .menu-item:hover a:hover, .menu-item-selected a.router-link-exact-active {
+  color: #818181;
+  transition: none;
 }
 
 .sidenav {
   height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
+  width: 0; 
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #818181;
   overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 10%;
+  padding-left: 10%;
+  margin-right: 3%;
+  background-repeat: repeat-y;
 }
 
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
+  color: #2222;
 }
 
 @media screen and (max-height: 450px) {
@@ -80,12 +75,33 @@ body {
   .sidenav a {font-size: 18px;}
 }
 
-.sidenav-opened{
-  width:0px;
+.sidenav-opened {
+  width:250px;
+  font-size:30px;
+  transition: 0.7s;
 }
 
-.sidenav-closed{
-  width:250px;
+.sidenav-closed {
+  width:5px;
+  transition: 0.7s;
+}
+
+.sidenav-closed a {
+  color: #818181;
+}
+
+.sidenav-closed .menu-item-selected {
+  background-color: #818181;
+  transition: none;
+}
+.sidenav-opened .menu-item-selected {
+  background-color: #FFFFFF;
+  transition-delay: 0.7s;
+}
+
+.sidenav-opened a {
+  color: #FFFFFF;
+  transition-delay: 0.7s;
 }
 </style>
 
@@ -97,28 +113,41 @@ export default {
   data () {
     return {
       closed: false,
+      selectedItem: -1,
       menus: [
-        { nombre: 'Nuestras rutas', id: 1, to: '/rutas' },
-        { nombre: 'Nuestros momentos', id: 2, to: '/nuestros-momentos' },
-        { nombre: 'Nuestras canciones', id: 3, to: '/nuestras-canciones' },
-        { nombre: 'Mis dedicatorias', id: 4, to: '/mis-dedicatorias' },
-        { nombre: 'Me inspiras...', id: 5, to: '/me-inspiras' }
+        { nombre: 'Nuestras rutas', id: 0, to: '/rutas' },
+        { nombre: 'Nuestros momentos', id: 1, to: '/nuestros-momentos' },
+        { nombre: 'Nuestras canciones', id: 2, to: '/nuestras-canciones' },
+        { nombre: 'Mis dedicatorias', id: 3, to: '/mis-dedicatorias' },
+        { nombre: 'Me inspiras...', id: 4, to: '/me-inspiras' }
       ]
     }
   },
   computed: {
-    classes () {
+    navClasses () {
       return {
-        'sidenav-opened': !!this.closed,
-        'sidenav-closed': !this.closed,
+        'p-2': true,
+        'sidenav-opened': !this.closed,
+        'sidenav-closed': this.closed,
         'sidenav': true,
-        'text-center': true
+        'text-center': true,
+        'rounded': true,
+        'flex-grow-4': true
+      }
+    },
+    linkClasses () {
+      return {
+        'toggle-close': this.closed,
+        'toggle-menu': !this.closed
       }
     }
   },
   methods: {
     toggle () {
       this.closed = !this.closed
+    },
+    itemSelected (id) {
+      this.selectedItem = id
     }
   }
 }

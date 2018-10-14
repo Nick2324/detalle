@@ -1,13 +1,13 @@
 <template>
-  <div id="sound-element">
+  <div id="sound-element" class="gallery-element">
     <img v-if="imageSrc"
       @mouseout="togglePlaying"
       @mouseover="togglePlaying"
       :src="imageSrc"
       :alt="placeholder"
-      class="thumbnail"
+      class="gallery-element"
     />
-    <audio :ref="id" controls>
+    <audio :ref="id" controls class="gallery-element">
       <source :src="src" :type="srcType">
     </audio>
     <div :id="descripcion">

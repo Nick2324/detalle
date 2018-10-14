@@ -1,5 +1,5 @@
 <template>
-  <div id="image-element">
+  <div id="image-element" class="gallery-element">
     <b-card
       :title="title"
       :img-src="src"

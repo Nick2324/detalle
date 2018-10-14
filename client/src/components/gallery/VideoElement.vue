@@ -1,12 +1,12 @@
 <template>
-  <div id="video-element">
+  <div id="video-element" class="gallery-element">
     <video
       :ref="id"
       @mouseout="togglePlaying"
       @mouseover="togglePlaying"
       :poster="imageSrc"
       controls
-    >
+    class="gallery-element">
       <source :src="src" :type="srcType">
     </video>
     <div :id="descripcion">
@@ -14,13 +14,6 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-/* video {
-  max-width: 500px;
-  max-heigth: 500px;
-} */
-</style>
 
 <script>
 

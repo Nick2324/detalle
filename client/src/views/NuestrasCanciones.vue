@@ -58,7 +58,7 @@ export default {
           options: { 'src': '/audio/7.mpeg', 'imageSrc': '/images/6.jpg' }
         }
       ],
-      cols: 3
+      cols: 4
     }
   },
   components: {

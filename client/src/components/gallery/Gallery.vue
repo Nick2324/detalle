@@ -1,7 +1,7 @@
 <template>
   <div id="gallery">
-    <b-container fluid>
-      <b-row v-for="(row, i) in matriz" :key="i" class="equal">
+    <b-container>
+      <b-row v-for="(row, i) in matriz" :key="i">
         <b-col v-for="(col, j) in row" :key="i * cols + j">
           <component :is="col.component" :id="col.id" :placeholder="col.placeholder" :options="col.options"/>
         </b-col>
@@ -37,12 +37,13 @@ export default {
     ImageElement
   },
   created () {
+    debugger
     let i = -1
     this.rows = Math.ceil(this.elements.length / this.cols)
     if (this.elements && this.cols && this.rows) {
       this.matriz = []
       this.elements.forEach(function (currval, index) {
-        if (index % this.rows === 0) {
+        if (index % this.cols === 0) {
           this.matriz.push([])
           i++
         }
