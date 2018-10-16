@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
 import Rutas from './views/Rutas.vue'
 import NuestrosMomentos from './views/NuestrosMomentos.vue'
 import NuestrasCanciones from './views/NuestrasCanciones.vue'

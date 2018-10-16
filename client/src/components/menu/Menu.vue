@@ -24,6 +24,7 @@
 }
 
 .content {
+  margin-top: 20px;
   margin-right: 10px;
   overflow: scroll;
 }
@@ -110,6 +111,8 @@
 
 <script>
 
+import router from '@/router.js'
+
 export default {
   name: 'detalle-menu',
   // props: ["menus"],
@@ -131,6 +134,7 @@ export default {
     this.menus.forEach((menuItem) => {
       if (menuItem.selectedItem) {
         this.selectedItem = menuItem.id
+        router.push(menuItem.to)
       }
     });
   },

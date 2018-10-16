@@ -1,6 +1,7 @@
 <template>
   <div id="nuestras-canciones">
-    <p>{{ descripcion }}</p>
+    <h1>{{ title }}</h1>
+    <p v-html="descripcion" />
     <gallery :cols="cols" :elements="elements"/>
   </div>
 </template>
@@ -13,7 +14,8 @@ export default {
   name: 'nuestras-canciones',
   data () {
     return {
-      descripcion: 'Nuestras canciones',
+      title: 'Nuestras canciones',
+      descripcion: 'De tu y de mi, de yo y de tu',
       elements: [
         
       ],

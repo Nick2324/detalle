@@ -6,13 +6,18 @@
 
 <style>
 .thumbnail {
-  max-width: 500px;
-  max-height: 500px;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 html, body{
   height: 100%;
   width: 100%;
+}
+
+p, h1 {
+  font-family: system-ui;
 }
 </style>
 

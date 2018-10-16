@@ -9,6 +9,11 @@
   float: right;
   margin: auto;
 }
+
+.infoWindow {
+  max-width: 300px;
+  max-height: 300px;
+}
 </style>
 
 <script>
@@ -43,7 +48,7 @@ export default {
     construirContenidoInfoWindow (info) {
       let contenido = info.descripcion
       if (info.imagen) {
-        contenido = `<div><img src="${info.imagen}" /><p>${info.descripcion}</p></div>`
+        contenido = `<div class="infoWindow"><article class="card"><img src="${info.imagen}"  class="card-img-top thumbnail"/><div class="card-body"><p class="card-text">${info.descripcion}</p></div></article></div>`
       }
       return contenido
     },
