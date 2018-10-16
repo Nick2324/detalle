@@ -1,5 +1,5 @@
 <template>
-  <div id="link-element" @click="openLink">
+  <div id="link-element" @click="openLink" ref="displayable">
     <div class="thumbnail-container">
       <div class="thumbnail">
       <iframe :src="src"></iframe>

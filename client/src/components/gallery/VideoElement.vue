@@ -1,15 +1,15 @@
 <template>
-  <div id="video-element" class="gallery-element">
+  <div id="video-element" class="gallery-element" ref="displayable">
     <video
       :ref="id"
       @mouseout="togglePlaying"
       @mouseover="togglePlaying"
       :poster="imageSrc"
       controls
-    class="gallery-element">
+      class="gallery-element">
       <source :src="src" :type="srcType">
     </video>
-    <div :id="descripcion">
+    <div :id="descripcion" @click="displayGalleryElement">
       {{ placeholder }}
     </div>
   </div>

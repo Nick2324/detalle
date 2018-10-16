@@ -21,6 +21,7 @@
 
 .content {
   margin-right: 10px;
+  overflow: scroll;
 }
 
 .toggle-menu {
@@ -49,7 +50,7 @@
 
 .sidenav {
   height: 100%;
-  width: 0; 
+  width: 0;
   top: 0;
   left: 0;
   background-color: #818181;
@@ -57,7 +58,6 @@
   padding-top: 10%;
   padding-left: 10%;
   margin-right: 3%;
-  background-repeat: repeat-y;
 }
 
 .sidenav a {
@@ -101,7 +101,6 @@
 
 .sidenav-opened a {
   color: #FFFFFF;
-  transition-delay: 0.7s;
 }
 </style>
 

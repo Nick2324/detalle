@@ -1,8 +1,9 @@
 <template>
-  <div id="sound-element" class="gallery-element">
+  <div id="sound-element" class="gallery-element" ref="displayable">
     <img v-if="imageSrc"
       @mouseout="togglePlaying"
       @mouseover="togglePlaying"
+      @click="displayGalleryElement"
       :src="imageSrc"
       :alt="placeholder"
       class="gallery-element"

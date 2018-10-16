@@ -1,7 +1,7 @@
 <template>
   <div id="text-element" class="gallery-element">
-    <div ref="thumbnail"></div>
-    <div :id="id + '-text-element'" ref="content" class="d-none">
+    <div ref="thumbnail" @click="displayGalleryElement(displayOptions.replacing)"></div>
+    <div :id="id + '-text-element'" class="d-none"  ref="displayable">
       <h3 v-if="title">{{ title }}</h3>
       <h3 v-else>{{ placeholder }}</h3>
       <p v-html="text"></p>
@@ -19,7 +19,13 @@ export default {
   data () {
     return {
       text: null,
-      title: null
+      title: null,
+      displayOptions: {
+        replacing: {
+          target: /d-none/g,
+          newValue: ''
+        }
+      }
     }
   },
   created () {
@@ -33,7 +39,7 @@ export default {
     takeScreenshot () {
       let id = this.id
       let thumbnail = this.$refs.thumbnail
-      this.html2canvas(this.$refs.content, {
+      this.html2canvas(this.$refs.displayable, {
         onclone: function (document) {
           let hiddenElement = document.getElementById(id + '-text-element')
           hiddenElement.style.display = 'block'

@@ -4,10 +4,11 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .gallery-element {
   max-width: 100%;
   max-height: 100%;
+  cursor: pointer;
 }
 </style>
 
@@ -24,6 +25,23 @@ export default {
   computed: {
     descripcion () {
       return this.id + '-' + this.placeholder
+    }
+  },
+  methods: {
+    displayGalleryElement (replacing, onClose) {
+      let outerHTML = this.$refs.displayable.outerHTML
+      if (Array.isArray(replacing)) {
+        replacing.forEach((value) => {
+          outerHTML = outerHTML.replace(value.target, value.newValue)
+        })
+      } else {
+        outerHTML = outerHTML.replace(replacing.target, replacing.newValue)
+      }
+      this.$emit(
+        'display-gallery-element',
+        outerHTML,
+        onClose
+      )
     }
   }
 }

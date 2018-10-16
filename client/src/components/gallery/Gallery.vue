@@ -3,10 +3,18 @@
     <b-container>
       <b-row v-for="(row, i) in matriz" :key="i">
         <b-col v-for="(col, j) in row" :key="i * cols + j">
-          <component :is="col.component" :id="col.id" :placeholder="col.placeholder" :options="col.options"/>
+          <component
+            :is="col.component"
+            :id="col.id"
+            :placeholder="col.placeholder"
+            :options="col.options"
+            @display-gallery-element="displayGalleryElement($event)"/>
         </b-col>
       </b-row>
     </b-container>
+    <b-modal ref="displayer" @hide="closeModal" hide-header hide-footer centered>
+      <div ref="displayerDiv" />
+    </b-modal>
   </div>
 </template>
 
@@ -24,8 +32,9 @@ export default {
   props: [ 'cols', 'elements' ],
   data () {
     return {
-      'matriz': null,
-      'rows': null
+      matriz: null,
+      rows: null,
+      isDisplayerOn: false
     }
   },
   components: {
@@ -37,7 +46,6 @@ export default {
     ImageElement
   },
   created () {
-    debugger
     let i = -1
     this.rows = Math.ceil(this.elements.length / this.cols)
     if (this.elements && this.cols && this.rows) {
@@ -49,6 +57,15 @@ export default {
         }
         this.matriz[i].push(currval)
       }.bind(this))
+    }
+  },
+  methods: {
+    closeModal () {
+      this.$refs.displayerDiv.innerHTML = ''
+    },
+    displayGalleryElement (data) {
+      this.$refs.displayerDiv.innerHTML = data
+      this.$refs.displayer.show()
     }
   }
 }
