@@ -33,7 +33,6 @@ p, h1 {
 </style>
 
 <script>
-// @ is an alias to /src
 import Vue from 'vue'
 import Menu from '@/components/menu/Menu.vue'
 import ComponentUtil from '@/components/util/ComponentUtil.vue'

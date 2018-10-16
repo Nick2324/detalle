@@ -6,7 +6,7 @@
       @click="displayGalleryElement"
       :src="imageSrc"
       :alt="placeholder"
-      class="gallery-element"
+      class="gallery-element img-thumbnail"
     />
     <audio :ref="id" controls class="gallery-element">
       <source :src="src" :type="srcType">

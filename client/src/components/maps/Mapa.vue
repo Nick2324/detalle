@@ -17,6 +17,10 @@
 </style>
 
 <script>
+
+import Vue from 'vue'
+import Carousel from '@/components/bootstrap/Carousel.vue'
+
 export default {
   name: 'mapa',
   props: ['options', 'marcadores'],
@@ -45,12 +49,25 @@ export default {
       this.vueGMap = new google.maps.Map(this.$refs.mapa, this.options)
       this.cargarMarcadores()
     },
-    construirContenidoInfoWindow (info) {
-      let contenido = info.descripcion
+    construirOptionsInfoWindow (info) {
+      let options = {}
+      options.content = info.descripcion
       if (info.imagen) {
-        contenido = `<div class="infoWindow"><article class="card"><img src="${info.imagen}"  class="card-img-top thumbnail"/><div class="card-body"><p class="card-text">${info.descripcion}</p></div></article></div>`
+        options.content = `<div class="infoWindow"><article class="card"><img src="${info.imagen}"  class="card-img-top img-thumbnail img-fluid"/><div class="card-body"><p class="card-text">${info.descripcion}</p></div></article></div>`
+      } else if(info.galeria) {
+        let id = Math.floor(Math.random() * 100);
+        options.content = `<div id="${id}" class="infoWindow" />`
+        options.domready = function () {
+          let div = document.getElementById(id)
+          if(!div.hasChildNodes()){
+            let ComponentClass = Vue.extend(Carousel)
+            let carousel = new ComponentClass({propsData: info.galeria})
+            carousel.$mount()
+            div.appendChild(carousel.$el)
+          }
+        }
       }
-      return contenido
+      return options
     },
     cargarMarcadorSimple (marcador) {
       let marker = new google.maps.Marker({
@@ -59,10 +76,15 @@ export default {
         title: this.nombre
       })
       if (marcador.info) {
-        let contenido = this.construirContenidoInfoWindow(marcador.info)
-        let infowindow = new google.maps.InfoWindow({
-          content: contenido
-        })
+        let options = this.construirOptionsInfoWindow(marcador.info)
+        let infowindow = new google.maps.InfoWindow(
+          Object.assign({
+            maxWidth: '300'
+          }, options)
+        )
+        if (options.domready) {
+          google.maps.event.addListener(infowindow, 'domready', options.domready)
+        }
         marker.addListener('click', function () {
           infowindow.open(this.vueGMap, marker)
         }.bind(this))
@@ -79,18 +101,20 @@ export default {
       })
       poly.setMap(this.vueGMap)
       if (marcador.info) {
-        let contenido = this.construirContenidoInfoWindow(marcador.info)
-        let infowindow = new google.maps.InfoWindow({
-          content: contenido,
-          position: marcador.coordenadas[Math.floor(marcador.coordenadas.length / 2)]
-        })
+        let options = this.construirOptionsInfoWindow(marcador.info)
+        let infowindow = new google.maps.InfoWindow(
+          Object.assign({
+            maxWidth: '300',
+            position: marcador.coordenadas[Math.floor(marcador.coordenadas.length / 2)]
+          }, options)
+        )
         google.maps.event.addListener(poly, 'click', function () {
           infowindow.open(this.vueGMap)
         }.bind(this))
       }
     },
     googleMapsFailedToLoad: function (error) {
-      console.log(error)
+      console.error(error)
     },
     createGoogleMaps: function () {
       return new Promise((resolve, reject) => {

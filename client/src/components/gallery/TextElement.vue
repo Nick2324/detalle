@@ -1,6 +1,6 @@
 <template>
   <div id="text-element" class="gallery-element">
-    <div ref="thumbnail" @click="displayGalleryElement(displayOptions.replacing)"></div>
+    <div ref="thumbnail" @click="displayGalleryElement(displayOptions.replacing)" class="img-thumbnail img-fluid"></div>
     <div :id="id + '-text-element'" class="d-none"  ref="displayable">
       <h3 v-if="title">{{ title }}</h3>
       <h3 v-else>{{ placeholder }}</h3>
@@ -44,7 +44,6 @@ export default {
           let hiddenElement = document.getElementById(id + '-text-element')
           hiddenElement.style.display = 'block'
           hiddenElement.setAttribute('class', '')
-          console.log(hiddenElement)
         }
       }).then((canvas) => {
         canvas.setAttribute('class', 'thumbnail')

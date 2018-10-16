@@ -26,6 +26,7 @@
 .content {
   margin-top: 20px;
   margin-right: 10px;
+  margin-bottom: 20px;
   overflow: scroll;
 }
 
