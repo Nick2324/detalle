@@ -2,7 +2,11 @@
 <div class="menu d-flex d-flex-row">
   <div id="sidenav" :class="navClasses">
     <a @click="toggle" href="#" :class="linkClasses">&#9776;</a>
-    <div :ref="'menu-item-' + menu.id" :class="{'menu-item': true, 'rounded': true, 'menu-item-selected': menu.id == selectedItem}" v-for="menu in menus" :key="menu.id">
+    <div 
+      :ref="'menu-item-' + menu.id"
+      :class="{'menu-item': true, 'rounded': true, 'menu-item-selected': menu.id == selectedItem}"
+      v-for="menu in menus"
+      :key="menu.id">
       <router-link :to="menu.to" @click.native="itemSelected(menu.id)">
         {{menu.nombre}}
       </router-link>
@@ -114,13 +118,21 @@ export default {
       closed: false,
       selectedItem: -1,
       menus: [
-        { nombre: 'Nuestras rutas', id: 0, to: '/rutas' },
-        { nombre: 'Nuestros momentos', id: 1, to: '/nuestros-momentos' },
-        { nombre: 'Nuestras canciones', id: 2, to: '/nuestras-canciones' },
-        { nombre: 'Mis dedicatorias', id: 3, to: '/mis-dedicatorias' },
-        { nombre: 'Me inspiras...', id: 4, to: '/me-inspiras' }
+        { nombre: 'Mi amorcito...', id: 0, to: '/', selectedItem: true },
+        { nombre: 'Nuestras rutas', id: 1, to: '/rutas' },
+        { nombre: 'Nuestros momentos', id: 2, to: '/nuestros-momentos' },
+        { nombre: 'Nuestras canciones', id: 3, to: '/nuestras-canciones' },
+        { nombre: 'Mis dedicatorias', id: 4, to: '/mis-dedicatorias' },
+        { nombre: 'Me inspiras...', id: 5, to: '/me-inspiras' }
       ]
     }
+  },
+  created () {
+    this.menus.forEach((menuItem) => {
+      if (menuItem.selectedItem) {
+        this.selectedItem = menuItem.id
+      }
+    });
   },
   computed: {
     navClasses () {
